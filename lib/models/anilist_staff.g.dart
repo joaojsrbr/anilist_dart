@@ -98,13 +98,13 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -112,7 +112,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
           break;
         case 'language':
           result.language = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'image':
           result.image.replace(serializers.deserialize(value,
@@ -120,11 +120,11 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
           break;
         case 'description':
           result.description = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'isFavourite':
           result.isFavourite = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'staffMedia':
           result.staffMedia.replace(serializers.deserialize(value,
@@ -142,7 +142,7 @@ class _$AnilistStaffSerializer implements StructuredSerializer<AnilistStaff> {
           break;
         case 'favourites':
           result.favourites = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -172,7 +172,7 @@ class _$AnilistStaff extends AnilistStaff {
   final int? favourites;
 
   factory _$AnilistStaff([void Function(AnilistStaffBuilder)? updates]) =>
-      (new AnilistStaffBuilder()..update(updates)).build();
+      (new AnilistStaffBuilder()..update(updates))._build();
 
   _$AnilistStaff._(
       {this.id,
@@ -210,25 +210,23 @@ class _$AnilistStaff extends AnilistStaff {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc($jc($jc(0, id.hashCode), name.hashCode),
-                                language.hashCode),
-                            image.hashCode),
-                        description.hashCode),
-                    isFavourite.hashCode),
-                staffMedia.hashCode),
-            characters.hashCode),
-        favourites.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, language.hashCode);
+    _$hash = $jc(_$hash, image.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, isFavourite.hashCode);
+    _$hash = $jc(_$hash, staffMedia.hashCode);
+    _$hash = $jc(_$hash, characters.hashCode);
+    _$hash = $jc(_$hash, favourites.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistStaff')
+    return (newBuiltValueToStringHelper(r'AnilistStaff')
           ..add('id', id)
           ..add('name', name)
           ..add('language', language)
@@ -322,7 +320,9 @@ class AnilistStaffBuilder
   }
 
   @override
-  _$AnilistStaff build() {
+  AnilistStaff build() => _build();
+
+  _$AnilistStaff _build() {
     _$AnilistStaff _$result;
     try {
       _$result = _$v ??
@@ -351,7 +351,7 @@ class AnilistStaffBuilder
         _characters?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistStaff', _$failedField, e.toString());
+            r'AnilistStaff', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -360,4 +360,4 @@ class AnilistStaffBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

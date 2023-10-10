@@ -1,5 +1,5 @@
-import 'package:anilist/models/anilist_media_sort.dart';
-import 'package:anilist/models/models.dart';
+
+import 'models.dart';
 
 class AnilistMediaSelect extends AnilistSelect {
   @override

@@ -1,6 +1,6 @@
-import 'package:anilist/anilist_request.dart';
 import 'package:dio/dio.dart';
 
+import 'anilist_request.dart';
 import 'models/models.dart';
 
 class AnilistMediaRequest extends AnilistMediaSelect with AnilistRequest {
@@ -13,6 +13,7 @@ class AnilistMediaRequest extends AnilistMediaSelect with AnilistRequest {
         client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co'));
     arguments['id'] = null;
   }
+
   AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments)
       : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
     super.arguments = withArguments;

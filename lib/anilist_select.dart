@@ -1,6 +1,7 @@
-import 'package:anilist/models/models.dart';
 import 'package:built_value/built_value.dart';
 import 'package:meta/meta.dart';
+
+import 'models/models.dart';
 
 class AnilistSelect {
   Map<String, dynamic> arguments = Map<String, dynamic>();
@@ -80,8 +81,9 @@ class AnilistSelect {
     return arguments.keys.map((k) {
       var value = arguments[k];
       if (value != null) {
-        if (value is Map<String, dynamic>)
+        if (value is Map<String, dynamic>) {
           return '$k {${queryElements(value)}}';
+        }
         if (value is AnilistSubquery) {
           var where = value.select.where;
           where = ', $where';

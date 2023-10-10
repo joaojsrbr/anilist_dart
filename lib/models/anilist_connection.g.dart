@@ -73,23 +73,23 @@ class _$AnilistConnectionSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'edges':
           result.edges.replace(serializers.deserialize(value,
                   specifiedType: new FullType(BuiltList, [parameterE]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'nodes':
           result.nodes.replace(serializers.deserialize(value,
                   specifiedType: new FullType(BuiltList, [parameterN]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'pageInfo':
           result.pageInfo = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -108,14 +108,14 @@ class _$AnilistConnection<N, E> extends AnilistConnection<N, E> {
 
   factory _$AnilistConnection(
           [void Function(AnilistConnectionBuilder<N, E>)? updates]) =>
-      (new AnilistConnectionBuilder<N, E>()..update(updates)).build();
+      (new AnilistConnectionBuilder<N, E>()..update(updates))._build();
 
   _$AnilistConnection._({this.edges, this.nodes, this.pageInfo}) : super._() {
     if (N == dynamic) {
-      throw new BuiltValueMissingGenericsError('AnilistConnection', 'N');
+      throw new BuiltValueMissingGenericsError(r'AnilistConnection', 'N');
     }
     if (E == dynamic) {
-      throw new BuiltValueMissingGenericsError('AnilistConnection', 'E');
+      throw new BuiltValueMissingGenericsError(r'AnilistConnection', 'E');
     }
   }
 
@@ -139,13 +139,17 @@ class _$AnilistConnection<N, E> extends AnilistConnection<N, E> {
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, edges.hashCode), nodes.hashCode), pageInfo.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, edges.hashCode);
+    _$hash = $jc(_$hash, nodes.hashCode);
+    _$hash = $jc(_$hash, pageInfo.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistConnection')
+    return (newBuiltValueToStringHelper(r'AnilistConnection')
           ..add('edges', edges)
           ..add('nodes', nodes)
           ..add('pageInfo', pageInfo))
@@ -195,7 +199,9 @@ class AnilistConnectionBuilder<N, E>
   }
 
   @override
-  _$AnilistConnection<N, E> build() {
+  AnilistConnection<N, E> build() => _build();
+
+  _$AnilistConnection<N, E> _build() {
     _$AnilistConnection<N, E> _$result;
     try {
       _$result = _$v ??
@@ -212,7 +218,7 @@ class AnilistConnectionBuilder<N, E>
         _nodes?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistConnection', _$failedField, e.toString());
+            r'AnilistConnection', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -221,4 +227,4 @@ class AnilistConnectionBuilder<N, E>
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

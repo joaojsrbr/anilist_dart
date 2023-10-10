@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:anilist/serializers.dart';
+import 'package:anilist_dart/serializers.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
 class AnilistSerializable<T> {
   FullType specifiedType = FullType(BuiltList, [FullType(T)]);
+
   String jsonListString(BuiltList<T> list) =>
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 

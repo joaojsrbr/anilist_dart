@@ -268,17 +268,17 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int))! as int;
           break;
         case 'idMal':
           result.idMal = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'title':
           result.title.replace(serializers.deserialize(value,
@@ -287,21 +287,21 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
         case 'type':
           result.type = serializers.deserialize(value,
                   specifiedType: const FullType(AnilistMediaType))
-              as AnilistMediaType;
+              as AnilistMediaType?;
           break;
         case 'format':
           result.format = serializers.deserialize(value,
                   specifiedType: const FullType(AnilistMediaFormat))
-              as AnilistMediaFormat;
+              as AnilistMediaFormat?;
           break;
         case 'status':
           result.status = serializers.deserialize(value,
                   specifiedType: const FullType(AnilistMediaStatus))
-              as AnilistMediaStatus;
+              as AnilistMediaStatus?;
           break;
         case 'description':
           result.description = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'startDate':
           result.startDate.replace(serializers.deserialize(value,
@@ -314,48 +314,48 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
         case 'season':
           result.season = serializers.deserialize(value,
                   specifiedType: const FullType(AnilistMediaSeason))
-              as AnilistMediaSeason;
+              as AnilistMediaSeason?;
           break;
         case 'seasonYear':
           result.seasonYear = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'seasonInt':
           result.seasonInt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'episodes':
           result.episodes = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'duration':
           result.duration = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'chapters':
           result.chapters = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'volumes':
           result.volumes = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'countryOfOrigin':
           result.countryOfOrigin = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'isLicensed':
           result.isLicensed = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'source':
           result.source = serializers.deserialize(value,
                   specifiedType: const FullType(AnilistMediaSource))
-              as AnilistMediaSource;
+              as AnilistMediaSource?;
           break;
         case 'hashtag':
           result.hashtag = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'trailer':
           result.trailer.replace(serializers.deserialize(value,
@@ -364,7 +364,7 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'updatedAt':
           result.updatedAt = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'coverImage':
           result.coverImage.replace(serializers.deserialize(value,
@@ -372,49 +372,49 @@ class _$AnilistMediaSerializer implements StructuredSerializer<AnilistMedia> {
           break;
         case 'bannerImage':
           result.bannerImage = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'genres':
           result.genres.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltSet, const [const FullType(String)]))!
-              as BuiltSet<Object>);
+              as BuiltSet<Object?>);
           break;
         case 'synonyms':
           result.synonyms.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltSet, const [const FullType(String)]))!
-              as BuiltSet<Object>);
+              as BuiltSet<Object?>);
           break;
         case 'averageScore':
           result.averageScore = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'meanScore':
           result.meanScore = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'popularity':
           result.popularity = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'isLocked':
           result.isLocked = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'trending':
           result.trending = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'favourites':
           result.favourites = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(AnilistTag)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
         case 'characters':
           result.characters.replace(serializers.deserialize(value,
@@ -510,7 +510,7 @@ class _$AnilistMedia extends AnilistMedia {
   final AnilistConnection<AnilistStaff, AnilistStaff>? staff;
 
   factory _$AnilistMedia([void Function(AnilistMediaBuilder)? updates]) =>
-      (new AnilistMediaBuilder()..update(updates)).build();
+      (new AnilistMediaBuilder()..update(updates))._build();
 
   _$AnilistMedia._(
       {required this.id,
@@ -549,7 +549,7 @@ class _$AnilistMedia extends AnilistMedia {
       this.characters,
       this.staff})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'AnilistMedia', 'id');
+    BuiltValueNullFieldError.checkNotNull(id, r'AnilistMedia', 'id');
   }
 
   @override
@@ -602,49 +602,49 @@ class _$AnilistMedia extends AnilistMedia {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc(
-                            $jc(
-                                $jc(
-                                    $jc(
-                                        $jc(
-                                            $jc(
-                                                $jc(
-                                                    $jc(
-                                                        $jc(
-                                                            $jc(
-                                                                $jc(
-                                                                    $jc(
-                                                                        $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, id.hashCode), idMal.hashCode), title.hashCode), type.hashCode), format.hashCode), status.hashCode), description.hashCode), startDate.hashCode), endDate.hashCode), season.hashCode), seasonYear.hashCode), seasonInt.hashCode), episodes.hashCode), duration.hashCode), chapters.hashCode), volumes.hashCode),
-                                                                                countryOfOrigin.hashCode),
-                                                                            isLicensed.hashCode),
-                                                                        source.hashCode),
-                                                                    hashtag.hashCode),
-                                                                trailer.hashCode),
-                                                            updatedAt.hashCode),
-                                                        coverImage.hashCode),
-                                                    bannerImage.hashCode),
-                                                genres.hashCode),
-                                            synonyms.hashCode),
-                                        averageScore.hashCode),
-                                    meanScore.hashCode),
-                                popularity.hashCode),
-                            isLocked.hashCode),
-                        trending.hashCode),
-                    favourites.hashCode),
-                tags.hashCode),
-            characters.hashCode),
-        staff.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, idMal.hashCode);
+    _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, type.hashCode);
+    _$hash = $jc(_$hash, format.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, startDate.hashCode);
+    _$hash = $jc(_$hash, endDate.hashCode);
+    _$hash = $jc(_$hash, season.hashCode);
+    _$hash = $jc(_$hash, seasonYear.hashCode);
+    _$hash = $jc(_$hash, seasonInt.hashCode);
+    _$hash = $jc(_$hash, episodes.hashCode);
+    _$hash = $jc(_$hash, duration.hashCode);
+    _$hash = $jc(_$hash, chapters.hashCode);
+    _$hash = $jc(_$hash, volumes.hashCode);
+    _$hash = $jc(_$hash, countryOfOrigin.hashCode);
+    _$hash = $jc(_$hash, isLicensed.hashCode);
+    _$hash = $jc(_$hash, source.hashCode);
+    _$hash = $jc(_$hash, hashtag.hashCode);
+    _$hash = $jc(_$hash, trailer.hashCode);
+    _$hash = $jc(_$hash, updatedAt.hashCode);
+    _$hash = $jc(_$hash, coverImage.hashCode);
+    _$hash = $jc(_$hash, bannerImage.hashCode);
+    _$hash = $jc(_$hash, genres.hashCode);
+    _$hash = $jc(_$hash, synonyms.hashCode);
+    _$hash = $jc(_$hash, averageScore.hashCode);
+    _$hash = $jc(_$hash, meanScore.hashCode);
+    _$hash = $jc(_$hash, popularity.hashCode);
+    _$hash = $jc(_$hash, isLocked.hashCode);
+    _$hash = $jc(_$hash, trending.hashCode);
+    _$hash = $jc(_$hash, favourites.hashCode);
+    _$hash = $jc(_$hash, tags.hashCode);
+    _$hash = $jc(_$hash, characters.hashCode);
+    _$hash = $jc(_$hash, staff.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistMedia')
+    return (newBuiltValueToStringHelper(r'AnilistMedia')
           ..add('id', id)
           ..add('idMal', idMal)
           ..add('title', title)
@@ -901,13 +901,15 @@ class AnilistMediaBuilder
   }
 
   @override
-  _$AnilistMedia build() {
+  AnilistMedia build() => _build();
+
+  _$AnilistMedia _build() {
     _$AnilistMedia _$result;
     try {
       _$result = _$v ??
           new _$AnilistMedia._(
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'AnilistMedia', 'id'),
+                  id, r'AnilistMedia', 'id'),
               idMal: idMal,
               title: _title?.build(),
               type: type,
@@ -972,7 +974,7 @@ class AnilistMediaBuilder
         _staff?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistMedia', _$failedField, e.toString());
+            r'AnilistMedia', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -981,4 +983,4 @@ class AnilistMediaBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

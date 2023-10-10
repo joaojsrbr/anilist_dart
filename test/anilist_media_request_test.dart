@@ -1,15 +1,15 @@
-import 'package:anilist/anilist_character_request.dart';
-import 'package:anilist/anilist_media_request.dart';
-import 'package:anilist/anilist_staff_request.dart';
-import 'package:anilist/models/models.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:anilist_dart/anilist_character_request.dart';
+import 'package:anilist_dart/anilist_media_request.dart';
+import 'package:anilist_dart/anilist_staff_request.dart';
+import 'package:anilist_dart/models/models.dart';
+import 'package:test/test.dart';
 
 void main() {
   test('request string', () async {
     final charSelect = AnilistCharacterSelect();
-    charSelect..withNameFull();
+    charSelect.withNameFull();
     final staffSelect = AnilistStaffSelect();
-    staffSelect..withNameFull();
+    staffSelect.withNameFull();
     final request = AnilistMediaRequest();
     request
       ..withIdMal()
@@ -50,7 +50,7 @@ void main() {
     expect(media.title?.romaji, equals('Shingeki no Kyojin'));
     expect(media.type, equals(AnilistMediaType.MANGA));
     expect(media.format, equals(AnilistMediaFormat.MANGA));
-    expect(media.status, equals(AnilistMediaStatus.RELEASING));
+    expect(media.status, equals(AnilistMediaStatus.FINISHED));
     expect(media.description, isA<String>());
     expect(media.startDate?.fuzzyDate, equals(DateTime(2009, 9, 9)));
     expect(media.endDate?.fuzzyDate, equals(DateTime(2021, 4, 9)));
@@ -68,7 +68,7 @@ void main() {
     expect(media.tags?.first.description, isNull);
     expect(media.characters?.nodes, hasLength(5));
     expect(media.characters?.nodes?.first.name?.full, isA<String>());
-    expect(media.staff?.nodes, hasLength(1));
+    expect(media.staff?.nodes, hasLength(greaterThan(2)));
     expect(media.staff?.nodes?.first.name?.full, isA<String>());
   });
   test('request media query', () async {
@@ -85,7 +85,7 @@ void main() {
 
   test('request media query list', () async {
     final request = AnilistMediaRequest();
-    request..withGenres();
+    request.withGenres();
     request
       ..querySearch('attack')
       ..queryGenres(['comedy', 'action']);
@@ -112,7 +112,7 @@ void main() {
 
   test('request media query sort', () async {
     final request = AnilistMediaRequest();
-    request..withTitle();
+    request.withTitle();
     request
       ..querySearch('attack')
       ..queryGenres(['comedy', 'action'])
@@ -122,7 +122,7 @@ void main() {
     expect(result.results, hasLength(greaterThan(1)));
     var first = result.results?.first;
 
-    request..sort([AnilistMediaSort.SEARCH_MATCH]);
+    request.sort([AnilistMediaSort.SEARCH_MATCH]);
 
     result = await request.list(10, 1);
     expect(result.results, hasLength(greaterThan(1)));
@@ -134,7 +134,7 @@ void main() {
 
   test('request character', () async {
     final request = AnilistCharacterRequest();
-    request..withName();
+    request.withName();
     var char = await request.byId(40881);
     expect(char.name?.full, equals('Mikasa Ackerman'));
   });
@@ -148,7 +148,7 @@ void main() {
   });
   test('request staff', () async {
     final request = AnilistStaffRequest();
-    request..withName();
+    request.withName();
     var staff = await request.byId(106705);
     expect(staff.name?.first, equals('Hajime'));
   });

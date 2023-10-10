@@ -1,6 +1,6 @@
-import 'package:anilist/anilist_request.dart';
 import 'package:dio/dio.dart';
 
+import 'anilist_request.dart';
 import 'models/models.dart';
 
 class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {

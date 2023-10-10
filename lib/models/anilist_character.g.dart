@@ -87,13 +87,13 @@ class _$AnilistCharacterSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'name':
           result.name.replace(serializers.deserialize(value,
@@ -105,25 +105,25 @@ class _$AnilistCharacterSerializer
           break;
         case 'description':
           result.description = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'isFavourite':
           result.isFavourite = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'siteUrl':
           result.siteUrl = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'medias':
           result.medias = serializers.deserialize(value,
                   specifiedType: const FullType(
                       List, const [const FullType(AnilistCharacter)]))
-              as List<AnilistCharacter>;
+              as List<AnilistCharacter>?;
           break;
         case 'favourites':
           result.favourites = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -152,7 +152,7 @@ class _$AnilistCharacter extends AnilistCharacter {
 
   factory _$AnilistCharacter(
           [void Function(AnilistCharacterBuilder)? updates]) =>
-      (new AnilistCharacterBuilder()..update(updates)).build();
+      (new AnilistCharacterBuilder()..update(updates))._build();
 
   _$AnilistCharacter._(
       {this.id,
@@ -189,23 +189,22 @@ class _$AnilistCharacter extends AnilistCharacter {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc($jc($jc(0, id.hashCode), name.hashCode),
-                            image.hashCode),
-                        description.hashCode),
-                    isFavourite.hashCode),
-                siteUrl.hashCode),
-            medias.hashCode),
-        favourites.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, image.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, isFavourite.hashCode);
+    _$hash = $jc(_$hash, siteUrl.hashCode);
+    _$hash = $jc(_$hash, medias.hashCode);
+    _$hash = $jc(_$hash, favourites.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistCharacter')
+    return (newBuiltValueToStringHelper(r'AnilistCharacter')
           ..add('id', id)
           ..add('name', name)
           ..add('image', image)
@@ -284,7 +283,9 @@ class AnilistCharacterBuilder
   }
 
   @override
-  _$AnilistCharacter build() {
+  AnilistCharacter build() => _build();
+
+  _$AnilistCharacter _build() {
     _$AnilistCharacter _$result;
     try {
       _$result = _$v ??
@@ -306,7 +307,7 @@ class AnilistCharacterBuilder
         _image?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistCharacter', _$failedField, e.toString());
+            r'AnilistCharacter', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -315,4 +316,4 @@ class AnilistCharacterBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

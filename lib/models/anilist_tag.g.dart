@@ -83,41 +83,41 @@ class _$AnilistTagSerializer implements StructuredSerializer<AnilistTag> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'name':
           result.name = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'description':
           result.description = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'category':
           result.category = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'rank':
           result.rank = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'isGeneralSpoiler':
           result.isGeneralSpoiler = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'isMediaSpoiler':
           result.isMediaSpoiler = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'isAdult':
           result.isAdult = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -145,7 +145,7 @@ class _$AnilistTag extends AnilistTag {
   final bool? isAdult;
 
   factory _$AnilistTag([void Function(AnilistTagBuilder)? updates]) =>
-      (new AnilistTagBuilder()..update(updates)).build();
+      (new AnilistTagBuilder()..update(updates))._build();
 
   _$AnilistTag._(
       {this.id,
@@ -181,23 +181,22 @@ class _$AnilistTag extends AnilistTag {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc(
-                        $jc($jc($jc(0, id.hashCode), name.hashCode),
-                            description.hashCode),
-                        category.hashCode),
-                    rank.hashCode),
-                isGeneralSpoiler.hashCode),
-            isMediaSpoiler.hashCode),
-        isAdult.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, description.hashCode);
+    _$hash = $jc(_$hash, category.hashCode);
+    _$hash = $jc(_$hash, rank.hashCode);
+    _$hash = $jc(_$hash, isGeneralSpoiler.hashCode);
+    _$hash = $jc(_$hash, isMediaSpoiler.hashCode);
+    _$hash = $jc(_$hash, isAdult.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistTag')
+    return (newBuiltValueToStringHelper(r'AnilistTag')
           ..add('id', id)
           ..add('name', name)
           ..add('description', description)
@@ -277,7 +276,9 @@ class AnilistTagBuilder implements Builder<AnilistTag, AnilistTagBuilder> {
   }
 
   @override
-  _$AnilistTag build() {
+  AnilistTag build() => _build();
+
+  _$AnilistTag _build() {
     final _$result = _$v ??
         new _$AnilistTag._(
             id: id,
@@ -293,4 +294,4 @@ class AnilistTagBuilder implements Builder<AnilistTag, AnilistTagBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

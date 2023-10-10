@@ -63,29 +63,29 @@ class _$AnilistPageInfoSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'total':
           result.total = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'perPage':
           result.perPage = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'currentPage':
           result.currentPage = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'lastPage':
           result.lastPage = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'hasNextPage':
           result.hasNextPage = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
+              specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -107,7 +107,7 @@ class _$AnilistPageInfo extends AnilistPageInfo {
   final bool? hasNextPage;
 
   factory _$AnilistPageInfo([void Function(AnilistPageInfoBuilder)? updates]) =>
-      (new AnilistPageInfoBuilder()..update(updates)).build();
+      (new AnilistPageInfoBuilder()..update(updates))._build();
 
   _$AnilistPageInfo._(
       {this.total,
@@ -138,17 +138,19 @@ class _$AnilistPageInfo extends AnilistPageInfo {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc($jc($jc(0, total.hashCode), perPage.hashCode),
-                currentPage.hashCode),
-            lastPage.hashCode),
-        hasNextPage.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, total.hashCode);
+    _$hash = $jc(_$hash, perPage.hashCode);
+    _$hash = $jc(_$hash, currentPage.hashCode);
+    _$hash = $jc(_$hash, lastPage.hashCode);
+    _$hash = $jc(_$hash, hasNextPage.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistPageInfo')
+    return (newBuiltValueToStringHelper(r'AnilistPageInfo')
           ..add('total', total)
           ..add('perPage', perPage)
           ..add('currentPage', currentPage)
@@ -209,7 +211,9 @@ class AnilistPageInfoBuilder
   }
 
   @override
-  _$AnilistPageInfo build() {
+  AnilistPageInfo build() => _build();
+
+  _$AnilistPageInfo _build() {
     final _$result = _$v ??
         new _$AnilistPageInfo._(
             total: total,
@@ -222,4 +226,4 @@ class AnilistPageInfoBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

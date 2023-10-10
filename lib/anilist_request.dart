@@ -1,10 +1,10 @@
-import 'package:anilist/models/models.dart';
 import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 import 'anilist_utils.dart';
+import 'models/models.dart';
 
-abstract class AnilistRequest<T> {
+abstract mixin class AnilistRequest<T> {
   int page = 1;
   int perPage = 10;
 

@@ -65,31 +65,31 @@ class _$AnilistNameSerializer implements StructuredSerializer<AnilistName> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'first':
           result.first = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'last':
           result.last = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'full':
           result.full = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'native':
           result.native = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'alternative':
           result.alternative.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
                       BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -111,7 +111,7 @@ class _$AnilistName extends AnilistName {
   final BuiltList<String>? alternative;
 
   factory _$AnilistName([void Function(AnilistNameBuilder)? updates]) =>
-      (new AnilistNameBuilder()..update(updates)).build();
+      (new AnilistNameBuilder()..update(updates))._build();
 
   _$AnilistName._(
       {this.first, this.last, this.full, this.native, this.alternative})
@@ -137,15 +137,19 @@ class _$AnilistName extends AnilistName {
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc($jc(0, first.hashCode), last.hashCode), full.hashCode),
-            native.hashCode),
-        alternative.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, first.hashCode);
+    _$hash = $jc(_$hash, last.hashCode);
+    _$hash = $jc(_$hash, full.hashCode);
+    _$hash = $jc(_$hash, native.hashCode);
+    _$hash = $jc(_$hash, alternative.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistName')
+    return (newBuiltValueToStringHelper(r'AnilistName')
           ..add('first', first)
           ..add('last', last)
           ..add('full', full)
@@ -207,7 +211,9 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
   }
 
   @override
-  _$AnilistName build() {
+  AnilistName build() => _build();
+
+  _$AnilistName _build() {
     _$AnilistName _$result;
     try {
       _$result = _$v ??
@@ -224,7 +230,7 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
         _alternative?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistName', _$failedField, e.toString());
+            r'AnilistName', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -233,4 +239,4 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

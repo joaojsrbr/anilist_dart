@@ -1,4 +1,5 @@
-import 'package:anilist/models/models.dart';
+
+import 'models.dart';
 
 class AnilistSubquery<T extends AnilistSelect> {
   final int page;

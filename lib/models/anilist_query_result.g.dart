@@ -62,7 +62,7 @@ class _$AnilistQueryResultSerializer
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
@@ -74,7 +74,7 @@ class _$AnilistQueryResultSerializer
         case 'results':
           result.results.replace(serializers.deserialize(value,
                   specifiedType: new FullType(BuiltList, [parameterE]))!
-              as BuiltList<Object>);
+              as BuiltList<Object?>);
           break;
       }
     }
@@ -91,11 +91,11 @@ class _$AnilistQueryResult<E> extends AnilistQueryResult<E> {
 
   factory _$AnilistQueryResult(
           [void Function(AnilistQueryResultBuilder<E>)? updates]) =>
-      (new AnilistQueryResultBuilder<E>()..update(updates)).build();
+      (new AnilistQueryResultBuilder<E>()..update(updates))._build();
 
   _$AnilistQueryResult._({this.pageInfo, this.results}) : super._() {
     if (E == dynamic) {
-      throw new BuiltValueMissingGenericsError('AnilistQueryResult', 'E');
+      throw new BuiltValueMissingGenericsError(r'AnilistQueryResult', 'E');
     }
   }
 
@@ -118,12 +118,16 @@ class _$AnilistQueryResult<E> extends AnilistQueryResult<E> {
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, pageInfo.hashCode), results.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, pageInfo.hashCode);
+    _$hash = $jc(_$hash, results.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistQueryResult')
+    return (newBuiltValueToStringHelper(r'AnilistQueryResult')
           ..add('pageInfo', pageInfo)
           ..add('results', results))
         .toString();
@@ -167,7 +171,9 @@ class AnilistQueryResultBuilder<E>
   }
 
   @override
-  _$AnilistQueryResult<E> build() {
+  AnilistQueryResult<E> build() => _build();
+
+  _$AnilistQueryResult<E> _build() {
     _$AnilistQueryResult<E> _$result;
     try {
       _$result = _$v ??
@@ -182,7 +188,7 @@ class AnilistQueryResultBuilder<E>
         _results?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'AnilistQueryResult', _$failedField, e.toString());
+            r'AnilistQueryResult', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -191,4 +197,4 @@ class AnilistQueryResultBuilder<E>
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

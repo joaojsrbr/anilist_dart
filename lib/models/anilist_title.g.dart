@@ -52,21 +52,21 @@ class _$AnilistTitleSerializer implements StructuredSerializer<AnilistTitle> {
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
-      final key = iterator.current as String;
+      final key = iterator.current! as String;
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
         case 'romaji':
           result.romaji = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'english':
           result.english = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'native':
           result.native = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(String)) as String?;
           break;
       }
     }
@@ -84,7 +84,7 @@ class _$AnilistTitle extends AnilistTitle {
   final String? native;
 
   factory _$AnilistTitle([void Function(AnilistTitleBuilder)? updates]) =>
-      (new AnilistTitleBuilder()..update(updates)).build();
+      (new AnilistTitleBuilder()..update(updates))._build();
 
   _$AnilistTitle._({this.romaji, this.english, this.native}) : super._();
 
@@ -106,13 +106,17 @@ class _$AnilistTitle extends AnilistTitle {
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, romaji.hashCode), english.hashCode), native.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, romaji.hashCode);
+    _$hash = $jc(_$hash, english.hashCode);
+    _$hash = $jc(_$hash, native.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AnilistTitle')
+    return (newBuiltValueToStringHelper(r'AnilistTitle')
           ..add('romaji', romaji)
           ..add('english', english)
           ..add('native', native))
@@ -161,7 +165,9 @@ class AnilistTitleBuilder
   }
 
   @override
-  _$AnilistTitle build() {
+  AnilistTitle build() => _build();
+
+  _$AnilistTitle _build() {
     final _$result = _$v ??
         new _$AnilistTitle._(romaji: romaji, english: english, native: native);
     replace(_$result);
@@ -169,4 +175,4 @@ class AnilistTitleBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
