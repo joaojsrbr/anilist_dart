@@ -31,8 +31,9 @@ class AnilistCharacterSelect extends AnilistSelect {
     return arguments.keys.map((k) {
       if (arguments[k] != null) {
         return '$k {${queryElements(arguments[k])}}';
-      } else
+      } else {
         return k;
+      }
     }).join(',');
   }
 
@@ -49,7 +50,7 @@ class AnilistCharacterSelect extends AnilistSelect {
   void withoutNameAlternative() => removeSub('name', 'alternative');
   void withoutName() => remove('name');
 
-  void withImage() => add('image', subArguments: argumentName);
+  void withImage() => add('image', subArguments: argumentImage);
   void withoutImage() => remove('image');
 
   void withDescription() => add('description');

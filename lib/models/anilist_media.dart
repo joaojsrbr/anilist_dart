@@ -49,7 +49,7 @@ abstract class AnilistMedia
   AnilistConnection<AnilistStaff, AnilistStaff>? get staff;
 
   static const FullType specifiedType =
-      const FullType(BuiltList, const [const FullType(AnilistMedia)]);
+      FullType(BuiltList, [FullType(AnilistMedia)]);
   static String jsonListString(BuiltList<AnilistMedia> list) =>
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 
@@ -61,9 +61,9 @@ abstract class AnilistMedia
       serializers.deserialize(json, specifiedType: FullType(AnilistMedia))
           as AnilistMedia;
 
-  static String toJson(AnilistMedia media) =>
+  static Map<String, dynamic> toJson(AnilistMedia media) =>
       serializers.serialize(media, specifiedType: FullType(AnilistMedia))
-          as String;
+          as Map<String, dynamic>;
 
   AnilistMedia._();
   factory AnilistMedia([void Function(AnilistMediaBuilder) updates]) =
