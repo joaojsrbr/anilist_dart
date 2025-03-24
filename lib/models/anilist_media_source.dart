@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -22,7 +24,7 @@ class AnilistMediaSource extends EnumClass {
   static const AnilistMediaSource DOUJINSHI = _$doujinishi;
   static const AnilistMediaSource ANIME = _$anime;
 
-  const AnilistMediaSource._(String name) : super(name);
+  const AnilistMediaSource._(super.name);
 
   static BuiltSet<AnilistMediaSource> get values => _$values;
   static AnilistMediaSource valueOf(String name) => _$valueOf(name);

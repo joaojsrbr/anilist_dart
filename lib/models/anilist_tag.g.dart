@@ -281,14 +281,15 @@ class AnilistTagBuilder implements Builder<AnilistTag, AnilistTagBuilder> {
   _$AnilistTag _build() {
     final _$result = _$v ??
         new _$AnilistTag._(
-            id: id,
-            name: name,
-            description: description,
-            category: category,
-            rank: rank,
-            isGeneralSpoiler: isGeneralSpoiler,
-            isMediaSpoiler: isMediaSpoiler,
-            isAdult: isAdult);
+          id: id,
+          name: name,
+          description: description,
+          category: category,
+          rank: rank,
+          isGeneralSpoiler: isGeneralSpoiler,
+          isMediaSpoiler: isMediaSpoiler,
+          isAdult: isAdult,
+        );
     replace(_$result);
     return _$result;
   }

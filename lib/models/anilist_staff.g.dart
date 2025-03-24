@@ -327,15 +327,16 @@ class AnilistStaffBuilder
     try {
       _$result = _$v ??
           new _$AnilistStaff._(
-              id: id,
-              name: _name?.build(),
-              language: language,
-              image: _image?.build(),
-              description: description,
-              isFavourite: isFavourite,
-              staffMedia: _staffMedia?.build(),
-              characters: _characters?.build(),
-              favourites: favourites);
+            id: id,
+            name: _name?.build(),
+            language: language,
+            image: _image?.build(),
+            description: description,
+            isFavourite: isFavourite,
+            staffMedia: _staffMedia?.build(),
+            characters: _characters?.build(),
+            favourites: favourites,
+          );
     } catch (_) {
       late String _$failedField;
       try {

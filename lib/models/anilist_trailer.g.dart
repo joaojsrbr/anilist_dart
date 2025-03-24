@@ -170,8 +170,12 @@ class AnilistTrailerBuilder
   AnilistTrailer build() => _build();
 
   _$AnilistTrailer _build() {
-    final _$result =
-        _$v ?? new _$AnilistTrailer._(id: id, site: site, thumbnail: thumbnail);
+    final _$result = _$v ??
+        new _$AnilistTrailer._(
+          id: id,
+          site: site,
+          thumbnail: thumbnail,
+        );
     replace(_$result);
     return _$result;
   }

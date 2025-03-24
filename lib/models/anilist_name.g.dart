@@ -218,11 +218,12 @@ class AnilistNameBuilder implements Builder<AnilistName, AnilistNameBuilder> {
     try {
       _$result = _$v ??
           new _$AnilistName._(
-              first: first,
-              last: last,
-              full: full,
-              native: native,
-              alternative: _alternative?.build());
+            first: first,
+            last: last,
+            full: full,
+            native: native,
+            alternative: _alternative?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

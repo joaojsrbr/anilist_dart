@@ -162,8 +162,12 @@ class AnilistDateBuilder implements Builder<AnilistDate, AnilistDateBuilder> {
   AnilistDate build() => _build();
 
   _$AnilistDate _build() {
-    final _$result =
-        _$v ?? new _$AnilistDate._(year: year, month: month, day: day);
+    final _$result = _$v ??
+        new _$AnilistDate._(
+          year: year,
+          month: month,
+          day: day,
+        );
     replace(_$result);
     return _$result;
   }

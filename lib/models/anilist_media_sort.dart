@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -50,7 +52,7 @@ class AnilistMediaSort extends EnumClass {
   static const AnilistMediaSort FAVOURITES = _$favourites;
   static const AnilistMediaSort FAVOURITES_DESC = _$favouritesdec;
 
-  const AnilistMediaSort._(String name) : super(name);
+  const AnilistMediaSort._(super.name);
 
   static BuiltSet<AnilistMediaSort> get values => _$values;
   static AnilistMediaSort valueOf(String name) => _$valueOf(name);

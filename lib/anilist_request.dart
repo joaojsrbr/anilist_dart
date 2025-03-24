@@ -17,6 +17,7 @@ abstract mixin class AnilistRequest<T> {
   String queryElements(Map<String, dynamic> arguments);
 
   @protected
+  // ignore: avoid_shadowing_type_parameters
   Future<AnilistQueryResult<T>> listRequest<T>(int perPage, int page) async {
     this.page = page;
     this.perPage = perPage;

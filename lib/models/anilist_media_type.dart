@@ -1,6 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+
 part 'anilist_media_type.g.dart';
 
 class AnilistMediaType extends EnumClass {
@@ -15,7 +18,7 @@ class AnilistMediaType extends EnumClass {
   static const AnilistMediaType MANGA = _$manga;
   static const AnilistMediaType ANIME = _$anime;
 
-  const AnilistMediaType._(String name) : super(name);
+  const AnilistMediaType._(super.name);
 
   static BuiltSet<AnilistMediaType> get values => _$values;
   static AnilistMediaType valueOf(String name) => _$valueOf(name);

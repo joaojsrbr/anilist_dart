@@ -206,9 +206,10 @@ class AnilistConnectionBuilder<N, E>
     try {
       _$result = _$v ??
           new _$AnilistConnection<N, E>._(
-              edges: _edges?.build(),
-              nodes: _nodes?.build(),
-              pageInfo: pageInfo);
+            edges: _edges?.build(),
+            nodes: _nodes?.build(),
+            pageInfo: pageInfo,
+          );
     } catch (_) {
       late String _$failedField;
       try {

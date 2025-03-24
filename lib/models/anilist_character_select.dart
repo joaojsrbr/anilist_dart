@@ -27,6 +27,7 @@ class AnilistCharacterSelect extends AnilistSelect {
     ''';
   }
 
+  @override
   String queryElements(Map<String, dynamic> arguments) {
     return arguments.keys.map((k) {
       if (arguments[k] != null) {

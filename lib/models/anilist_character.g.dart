@@ -290,14 +290,15 @@ class AnilistCharacterBuilder
     try {
       _$result = _$v ??
           new _$AnilistCharacter._(
-              id: id,
-              name: _name?.build(),
-              image: _image?.build(),
-              description: description,
-              isFavourite: isFavourite,
-              siteUrl: siteUrl,
-              medias: medias,
-              favourites: favourites);
+            id: id,
+            name: _name?.build(),
+            image: _image?.build(),
+            description: description,
+            isFavourite: isFavourite,
+            siteUrl: siteUrl,
+            medias: medias,
+            favourites: favourites,
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -27,12 +27,14 @@ class AnilistStaffSelect extends AnilistSelect {
     ''';
   }
 
+  @override
   String queryElements(Map<String, dynamic> arguments) {
     return arguments.keys.map((k) {
       if (arguments[k] != null) {
         return '$k {${queryElements(arguments[k])}}';
-      } else
+      } else {
         return k;
+      }
     }).join(',');
   }
 

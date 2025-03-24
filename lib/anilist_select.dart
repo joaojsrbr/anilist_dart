@@ -4,9 +4,9 @@ import 'package:meta/meta.dart';
 import 'models/models.dart';
 
 class AnilistSelect {
-  Map<String, dynamic> arguments = Map<String, dynamic>();
-  Map<String, dynamic> whereArguments = Map<String, dynamic>();
-  Map<String, dynamic> pageArguments = Map<String, dynamic>();
+  Map<String, dynamic> arguments = <String, dynamic>{};
+  Map<String, dynamic> whereArguments = <String, dynamic>{};
+  Map<String, dynamic> pageArguments = <String, dynamic>{};
 
   int page = 1;
   int perPage = 10;
@@ -16,7 +16,7 @@ class AnilistSelect {
   void add(String key, {dynamic subArguments}) => arguments[key] = subArguments;
   void remove(String key) => arguments.remove(key);
   void addSub(String key, String subKey) {
-    arguments.putIfAbsent(key, () => Map<String, String?>());
+    arguments.putIfAbsent(key, () => <String, dynamic>{});
     arguments[key][subKey] = null;
   }
 
@@ -31,8 +31,9 @@ class AnilistSelect {
     if (value == null) return '';
     if (value is int || value is double || value is EnumClass) return value;
     if (value is List<String>) return '[${value.map((e) => '"$e"').join(',')}]';
-    if (value is List<EnumClass>)
+    if (value is List<EnumClass>) {
       return '[${value.map((e) => '$e').join(',')}]';
+    }
     return '"$value"';
   }
 
@@ -56,7 +57,7 @@ class AnilistSelect {
     ''';
   }
 
-  String get pageInfo => pageElements.length > 0
+  String get pageInfo => pageElements.isNotEmpty
       ? '''
   pageInfo {
           $pageElements

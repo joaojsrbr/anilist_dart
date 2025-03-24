@@ -169,7 +169,11 @@ class AnilistTitleBuilder
 
   _$AnilistTitle _build() {
     final _$result = _$v ??
-        new _$AnilistTitle._(romaji: romaji, english: english, native: native);
+        new _$AnilistTitle._(
+          romaji: romaji,
+          english: english,
+          native: native,
+        );
     replace(_$result);
     return _$result;
   }

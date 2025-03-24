@@ -216,11 +216,12 @@ class AnilistPageInfoBuilder
   _$AnilistPageInfo _build() {
     final _$result = _$v ??
         new _$AnilistPageInfo._(
-            total: total,
-            perPage: perPage,
-            currentPage: currentPage,
-            lastPage: lastPage,
-            hasNextPage: hasNextPage);
+          total: total,
+          perPage: perPage,
+          currentPage: currentPage,
+          lastPage: lastPage,
+          hasNextPage: hasNextPage,
+        );
     replace(_$result);
     return _$result;
   }

@@ -4,15 +4,18 @@ import 'anilist_request.dart';
 import 'models/models.dart';
 
 class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {
-  Dio client;
+  // ignore: constant_identifier_names
+  static const String URL = 'https://graphql.anilist.co';
 
-  AnilistStaffRequest({Dio? client})
-      : client =
-            client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
+  BaseOptions get options => BaseOptions(baseUrl: URL);
+
+  AnilistStaffRequest({Dio? client}) {
+    this.client = client?.clone(options: options) ?? Dio(options);
     arguments['id'] = null;
   }
-  AnilistStaffRequest.fromArguments(Map<String, dynamic> withArguments)
-      : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
+
+  AnilistStaffRequest.fromArguments(Map<String, dynamic> withArguments) {
+    client = Dio(options);
     super.arguments = withArguments;
   }
 

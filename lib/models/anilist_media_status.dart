@@ -1,6 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+
 part 'anilist_media_status.g.dart';
 
 class AnilistMediaStatus extends EnumClass {
@@ -17,7 +20,7 @@ class AnilistMediaStatus extends EnumClass {
   static const AnilistMediaStatus NOT_YET_RELEASED = _$notyetreleased;
   static const AnilistMediaStatus CANCELLED = _$cancelled;
 
-  const AnilistMediaStatus._(String name) : super(name);
+  const AnilistMediaStatus._(super.name);
 
   static BuiltSet<AnilistMediaStatus> get values => _$values;
   static AnilistMediaStatus valueOf(String name) => _$valueOf(name);

@@ -178,7 +178,9 @@ class AnilistQueryResultBuilder<E>
     try {
       _$result = _$v ??
           new _$AnilistQueryResult<E>._(
-              pageInfo: _pageInfo?.build(), results: _results?.build());
+            pageInfo: _pageInfo?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

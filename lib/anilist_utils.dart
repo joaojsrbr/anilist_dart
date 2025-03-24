@@ -17,6 +17,6 @@ class AnilistSerializable<T> {
   T fromJson(Map<String, dynamic> json) =>
       serializers.deserialize(json, specifiedType: FullType(T)) as T;
 
-  String toJson<T extends Object>(T media) =>
+  String toJson(T media) =>
       serializers.serialize(media, specifiedType: FullType(T)) as String;
 }

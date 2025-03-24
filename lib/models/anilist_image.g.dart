@@ -192,7 +192,11 @@ class AnilistImageBuilder
   _$AnilistImage _build() {
     final _$result = _$v ??
         new _$AnilistImage._(
-            extraLarge: extraLarge, large: large, medium: medium, color: color);
+          extraLarge: extraLarge,
+          large: large,
+          medium: medium,
+          color: color,
+        );
     replace(_$result);
     return _$result;
   }

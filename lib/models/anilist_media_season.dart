@@ -1,6 +1,9 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+
 part 'anilist_media_season.g.dart';
 
 class AnilistMediaSeason extends EnumClass {
@@ -17,6 +20,7 @@ class AnilistMediaSeason extends EnumClass {
   static const AnilistMediaSeason SPRING = _$spring;
   static const AnilistMediaSeason FALL = _$fall;
 
+  // ignore: use_super_parameters
   const AnilistMediaSeason._(String name) : super(name);
 
   static BuiltSet<AnilistMediaSeason> get values => _$values;

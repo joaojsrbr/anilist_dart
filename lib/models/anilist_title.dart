@@ -16,7 +16,7 @@ abstract class AnilistTitle
   String? get native;
 
   static const FullType specifiedType =
-      const FullType(BuiltList, const [const FullType(AnilistTitle)]);
+      FullType(BuiltList, [FullType(AnilistTitle)]);
   static String jsonString(BuiltList<AnilistTitle> list) =>
       jsonEncode(serializers.serialize(list, specifiedType: specifiedType));
 

@@ -1,21 +1,22 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:dio/dio.dart';
 
 import 'anilist_request.dart';
 import 'models/models.dart';
 
 class AnilistMediaRequest extends AnilistMediaSelect with AnilistRequest {
-  Dio client;
+  static const String URL = 'https://graphql.anilist.co';
 
-  AnilistMediaRequest({Dio? client})
-      : client =
-            client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
-    this.client =
-        client ?? Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co'));
+  BaseOptions get options => BaseOptions(baseUrl: URL);
+
+  AnilistMediaRequest({Dio? client}) {
+    this.client = client?.clone(options: options) ?? Dio(options);
     arguments['id'] = null;
   }
 
-  AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments)
-      : client = Dio(BaseOptions(baseUrl: 'https://graphql.anilist.co')) {
+  AnilistMediaRequest.fromArguments(Map<String, dynamic> withArguments) {
+    client = Dio(options);
     super.arguments = withArguments;
   }
 
