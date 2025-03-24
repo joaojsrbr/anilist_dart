@@ -2,17 +2,70 @@ import 'package:anilist_dart/anilist_character_request.dart';
 import 'package:anilist_dart/anilist_media_request.dart';
 import 'package:anilist_dart/anilist_staff_request.dart';
 import 'package:anilist_dart/models/models.dart';
-import 'package:dio/dio.dart';
 import 'package:test/test.dart';
 
+import 'dio_client.dart';
+
 void main() {
+  test(
+    'test',
+    () async {
+      final dio = DioClient();
+      final charSelect = AnilistCharacterSelect()
+        ..withName()
+        ..withImage();
+
+      final staffSelect = AnilistStaffSelect()
+        ..withName()
+        ..withImage();
+
+      final request = AnilistMediaRequest(client: dio.client)
+        ..withIdMal()
+        ..withTitle()
+        ..withType()
+        ..withEpisodes()
+        ..withFormat()
+        ..withIdMal()
+        ..withStatus()
+        ..withDescription()
+        ..withStartDate()
+        ..withEndDate()
+        ..withSeason()
+        ..withCountryOfOrigin()
+        ..withIsLicensed()
+        ..withSource()
+        ..withHashtag()
+        ..withTrailer()
+        ..withUpdatedAt()
+        ..withCoverImage()
+        ..withBannerImage()
+        ..withGenres()
+        ..withSynonyms()
+        ..withBannerImage()
+        ..withMeanScore()
+        ..withAverageScore()
+        ..withPopularity()
+        ..withIsLocked()
+        ..withFavourites()
+        ..withTrending()
+        ..withTagsId()
+        ..withTagsName()
+        ..withCharcters(AnilistSubquery(page: 1, perPage: 5, charSelect))
+        ..withStaff(AnilistSubquery(page: 1, perPage: 5, staffSelect))
+        ..querySearch('attack');
+
+      final animeMedia = (await request.list(2, 1)).results;
+      customLog(animeMedia?.first);
+    },
+  );
+
   test('request string', () async {
-    final dio = Dio();
+    final dio = DioClient();
     final charSelect = AnilistCharacterSelect();
     charSelect.withNameFull();
     final staffSelect = AnilistStaffSelect();
     staffSelect.withNameFull();
-    final request = AnilistMediaRequest(client: dio);
+    final request = AnilistMediaRequest(client: dio.client);
     request
       ..withIdMal()
       ..withTitle()

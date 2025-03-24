@@ -10,7 +10,7 @@ class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {
   BaseOptions get options => BaseOptions(baseUrl: URL);
 
   AnilistStaffRequest({Dio? client}) {
-    this.client = client?.clone() ?? Dio(options);
+    this.client = client ?? Dio(options);
     arguments['id'] = null;
   }
 

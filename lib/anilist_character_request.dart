@@ -11,7 +11,7 @@ class AnilistCharacterRequest extends AnilistCharacterSelect
   BaseOptions get options => BaseOptions(baseUrl: URL);
 
   AnilistCharacterRequest({Dio? client}) {
-    this.client = client?.clone() ?? Dio(options);
+    this.client = client ?? Dio(options);
     arguments['id'] = null;
   }
 

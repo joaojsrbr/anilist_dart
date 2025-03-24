@@ -11,7 +11,7 @@ class AnilistMediaRequest extends AnilistMediaSelect with AnilistRequest {
   BaseOptions get options => BaseOptions(baseUrl: URL);
 
   AnilistMediaRequest({Dio? client}) {
-    this.client = client?.clone() ?? Dio(options);
+    this.client = client ?? Dio(options);
     arguments['id'] = null;
   }
 
