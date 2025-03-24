@@ -10,7 +10,7 @@ class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {
   BaseOptions get options => BaseOptions(baseUrl: URL);
 
   AnilistStaffRequest({Dio? client}) {
-    this.client = client?.clone(options: options) ?? Dio(options);
+    this.client = client?.clone() ?? Dio(options);
     arguments['id'] = null;
   }
 
@@ -25,7 +25,7 @@ class AnilistStaffRequest extends AnilistStaffSelect with AnilistRequest {
   }
 
   Future<AnilistStaff> byId(int id) async {
-    var response = await client.post('', data: {
+    var response = await client.post(URL, data: {
       "query": query,
       "variables": {'id': id}
     });

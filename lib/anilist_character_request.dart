@@ -11,7 +11,7 @@ class AnilistCharacterRequest extends AnilistCharacterSelect
   BaseOptions get options => BaseOptions(baseUrl: URL);
 
   AnilistCharacterRequest({Dio? client}) {
-    this.client = client?.clone(options: options) ?? Dio(options);
+    this.client = client?.clone() ?? Dio(options);
     arguments['id'] = null;
   }
 
@@ -26,7 +26,7 @@ class AnilistCharacterRequest extends AnilistCharacterSelect
   }
 
   Future<AnilistCharacter> byId(int id) async {
-    var response = await client.post('', data: {
+    var response = await client.post(URL, data: {
       "query": query,
       "variables": {'id': id}
     });

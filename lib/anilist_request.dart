@@ -16,12 +16,15 @@ abstract mixin class AnilistRequest<T> {
   @protected
   String queryElements(Map<String, dynamic> arguments);
 
+  // ignore: constant_identifier_names
+  static const String URL = 'https://graphql.anilist.co';
+
   @protected
   // ignore: avoid_shadowing_type_parameters
   Future<AnilistQueryResult<T>> listRequest<T>(int perPage, int page) async {
     this.page = page;
     this.perPage = perPage;
-    var response = await client.post('', data: {
+    var response = await client.post(URL, data: {
       "query": whereQuery,
     });
     var mediasJson = response.data['data']['Page'][name.toLowerCase()];

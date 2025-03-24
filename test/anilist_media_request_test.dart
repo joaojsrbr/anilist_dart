@@ -2,15 +2,17 @@ import 'package:anilist_dart/anilist_character_request.dart';
 import 'package:anilist_dart/anilist_media_request.dart';
 import 'package:anilist_dart/anilist_staff_request.dart';
 import 'package:anilist_dart/models/models.dart';
+import 'package:dio/dio.dart';
 import 'package:test/test.dart';
 
 void main() {
   test('request string', () async {
+    final dio = Dio();
     final charSelect = AnilistCharacterSelect();
     charSelect.withNameFull();
     final staffSelect = AnilistStaffSelect();
     staffSelect.withNameFull();
-    final request = AnilistMediaRequest();
+    final request = AnilistMediaRequest(client: dio);
     request
       ..withIdMal()
       ..withTitle()
